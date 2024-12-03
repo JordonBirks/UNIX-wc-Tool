@@ -1,7 +1,7 @@
 import sys
 
 # A class to carry out the functionality of the project
-# once more
+
 class ccwc:
     def __init__(self, f = "", file = ""):
 
@@ -19,28 +19,41 @@ class ccwc:
         # Set f and file as class attrbutes
         self.f = f 
         self.data = data
-        # run each function 
-        self.c(self.data)
+        # run each function
+        if f == '-c': 
+            self.c(self.data)
+        if f == '-l': 
+            self.l(self.data)
+        if f == '-w': 
+            self.w(self.data)
+        if f == '-m': 
+            self.m(self.data)
+        if f == "" : 
+            self.default(self.data)
 
 
     def c(self, data):
-        #print(len(data.encode('utf-8')))
-        print(len(data))
+        print(len(data.encode('utf-8')))
+
     def l(self, data):
-        pass
+        print(data.count('\n'))
 
     def w(self, data):
-        pass
+        print(len(data.split()))
 
     def m(self, data):
-        pass
+        print(len(data) - data.count(' '))
 
     def default(self, data):
-        pass  
+        self.c(self.data) 
+        self.l(self.data)
+        self.w(self.data)
+        self.m(self.data)
 
 if __name__ == '__main__':
     #  cat test.txt | python ccwc.py
     #  python ccwc.py -c test.txt
+    # conda activate /Users/jordonbirks/opt/anaconda3/envs/Standard
 
     # If more than two arguments added, return error
     if len(sys.argv) > 3:
