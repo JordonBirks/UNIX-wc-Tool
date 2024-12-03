@@ -1,7 +1,7 @@
 import sys
 
 # A class to carry out the functionality of the project
-# big change 222
+
 class ccwc:
     def __init__(self, f = "", file = ""):
 
