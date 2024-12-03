@@ -1,7 +1,7 @@
 import sys
 
 # A class to carry out the functionality of the project
-# Pull this
+# Pull this, this is easy
 
 class ccwc:
     def __init__(self, f = "", file = ""):
