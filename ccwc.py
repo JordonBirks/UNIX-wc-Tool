@@ -2,6 +2,7 @@ import sys
 
 # A class to carry out the functionality of the project
 
+# A class to implement comand line tool functionality
 class ccwc:
     def __init__(self, f = "", file = ""):
 
@@ -16,10 +17,11 @@ class ccwc:
         if (f in ('-c', '-l', '-w', '-m', "")) == False:
             sys.exit('Invalid first argument, should be -c, -l, -w, -m or nan')
 
-        # Set f and file as class attrbutes
+        # Set f and data as class attrbutes
         self.f = f 
         self.data = data
-        # run each function
+
+        # run each function based on condition
         if f == '-c': 
             self.c(self.data)
         if f == '-l': 
@@ -31,19 +33,20 @@ class ccwc:
         if f == "" : 
             self.default(self.data)
 
-
+    # Count bytes in file
     def c(self, data):
         print(len(data.encode('utf-8')))
-
+    # Count line in file
     def l(self, data):
         print(data.count('\n'))
-
+    # Count words in file
     def w(self, data):
         print(len(data.split()))
-
+    # Count character in file 
     def m(self, data):
         print(len(data) - data.count(' '))
 
+    # If no method specified do all
     def default(self, data):
         self.c(self.data) 
         self.l(self.data)
@@ -51,8 +54,8 @@ class ccwc:
         self.m(self.data)
 
 if __name__ == '__main__':
-    #  cat test.txt | python ccwc.py
-    #  python ccwc.py -c test.txt
+    # cat test.txt | python ccwc.py
+    # python ccwc.py -c test.txt
     # conda activate /Users/jordonbirks/opt/anaconda3/envs/Standard
 
     # If more than two arguments added, return error
